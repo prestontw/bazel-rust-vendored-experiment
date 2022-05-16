@@ -13,5 +13,5 @@ crates_vendor(
     name = "crates_vendor",
     manifests = [":Cargo.toml"],
     mode = "local",
-    vendor_path = "3rd-party",
+    vendor_path = ":crates",
 )
