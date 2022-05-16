@@ -1,7 +1,0 @@
-load("@rules_rust//rust:defs.bzl", "rust_binary")
-
-rust_binary(
-    name = "hello_world",
-    srcs = ["src/main.rs"],
-    deps = all_crate_deps(normal = True,),
-)
