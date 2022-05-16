@@ -14,5 +14,5 @@ crates_vendor(
     name = "crates_vendor",
     manifests = [":Cargo.toml"],
     mode = "local",
-    vendor_path = "crates",
+    vendor_path = "/Users/preston/git/bazel-experiment/crates",
 )
