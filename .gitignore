@@ -1,4 +1,4 @@
-/target
+**/target
 bazel-bazel-experiment
 bazel-bin
 bazel-out
