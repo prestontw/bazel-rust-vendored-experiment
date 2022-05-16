@@ -5,6 +5,7 @@ rust_binary(
     name = "hello_world",
     srcs = ["src/main.rs"],
     deps = all_crate_deps(normal = True,),
+    aliases = aliases(),
 )
 
 load("@rules_rust//crate_universe:defs.bzl", "crates_vendor")
