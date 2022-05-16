@@ -6,3 +6,11 @@ rust_binary(
     srcs = ["src/main.rs"],
     deps = all_crate_deps(normal = True,),
 )
+
+load("@rules_rust//crate_universe:defs.bzl", "crates_vendor")
+
+crates_vendor(
+    name = "crates_vendor",
+    manifests = [":Cargo.toml"],
+    mode = "local",
+)

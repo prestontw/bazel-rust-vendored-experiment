@@ -27,7 +27,7 @@ crates_repository(
     name = "crate_index",
     lockfile = "//:Cargo.Bazel.lock",
     manifests = ["//:Cargo.toml"],
-    cargo_config = "//:.cargo/config.toml",
+    # cargo_config = "//:.cargo/config.toml",
 )
 
 load("@crate_index//:defs.bzl", "crate_repositories")
