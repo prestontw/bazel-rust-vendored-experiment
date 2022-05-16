@@ -1,34 +1,15 @@
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
-# To find additional information on this release or newer ones visit:
-# https://github.com/bazelbuild/rules_rust/releases
 http_archive(
     name = "rules_rust",
-    sha256 = "39655ab175e3c6b979f362f55f58085528f1647957b0e9b3a07f81d8a9c3ea0a",
+    sha256 = "accb5a89cbe63d55dcdae85938e56ff3aa56f21eb847ed826a28a83db8500ae6",
+    strip_prefix = "rules_rust-9aa49569b2b0dacecc51c05cee52708b7255bd98",
     urls = [
-        "https://mirror.bazel.build/github.com/bazelbuild/rules_rust/releases/download/0.2.0/rules_rust-v0.2.0.tar.gz",
-        "https://github.com/bazelbuild/rules_rust/releases/download/0.2.0/rules_rust-v0.2.0.tar.gz",
+        # Main branch as of 2021-02-19
+        "https://github.com/bazelbuild/rules_rust/archive/9aa49569b2b0dacecc51c05cee52708b7255bd98.tar.gz",
     ],
 )
 
-load("@rules_rust//rust:repositories.bzl", "rules_rust_dependencies", "rust_register_toolchains")
+load("@rules_rust//rust:repositories.bzl", "rust_repositories")
 
-rules_rust_dependencies()
-
-rust_register_toolchains(version = "1.59.0", edition="2018")
-
-load("@rules_rust//crate_universe:repositories.bzl", "crate_universe_dependencies")
-
-crate_universe_dependencies()
-
-load("@rules_rust//crate_universe:defs.bzl", "crates_repository")
-
-crates_repository(
-    name = "crate_index",
-    lockfile = "//:Cargo.Bazel.lock",
-    manifests = ["//:Cargo.toml"],
-)
-
-load("@crate_index//:defs.bzl", "crate_repositories")
-
-crate_repositories()
+rust_repositories()
