@@ -15,8 +15,12 @@ load("@rules_rust//rust:repositories.bzl", "rules_rust_dependencies", "rust_regi
 
 rules_rust_dependencies()
 
-rust_register_toolchains(version = "1.60.0", edition="2021")
+rust_register_toolchains(version = "1.60.0", edition="2021", include_rustc_srcs = True)
 
 load("@rules_rust//crate_universe:repositories.bzl", "crate_universe_dependencies")
 
 crate_universe_dependencies()
+
+load("@rules_rust//crate_universe:crates_deps.bzl", "crate_repositories")
+
+crate_repositories()
