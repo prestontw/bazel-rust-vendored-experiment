@@ -8,7 +8,7 @@ crates_vendor(
 )
 
 load("@rules_rust//rust:defs.bzl", "rust_binary")
-load("//crates:defs.bzl", "aliases", "all_crate_deps")
+load("//vendor_local_manifests/crates:defs.bzl", "aliases", "all_crate_deps")
 
 rust_binary(
     name = "hello_world",
