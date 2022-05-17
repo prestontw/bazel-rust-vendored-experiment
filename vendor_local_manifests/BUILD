@@ -7,7 +7,7 @@ crates_vendor(
     vendor_path = "crates",
 )
 
-load("@rules_rust//rust:defs.bzl", "rust_binary", "rust_test")
+load("@rules_rust//rust:defs.bzl", "rust_binary", "rust_library", "rust_test")
 load("//vendor_local_manifests/crates:defs.bzl", "aliases", "all_crate_deps")
 
 rust_binary(
@@ -15,6 +15,18 @@ rust_binary(
     srcs = ["src/main.rs"],
     deps = all_crate_deps(normal = True,),
     aliases = aliases(),
+)
+
+rust_library(
+    name = "hello_world_lib",
+    srcs = ["src/lib.rs"],
+    deps = all_crate_deps(normal = True,),
+    aliases = aliases(),
+)
+
+rust_test(
+    name = "hw_lib_test",
+    crate = ":hello_world_lib",
 )
 
 rust_test(
