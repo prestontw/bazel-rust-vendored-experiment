@@ -1,7 +1,7 @@
 use axum::{
-    routing::{get, post},
     http::StatusCode,
     response::IntoResponse,
+    routing::{get, post},
     Json, Router,
 };
 use serde::{Deserialize, Serialize};
@@ -61,4 +61,9 @@ struct CreateUser {
 struct User {
     id: u64,
     username: String,
+}
+
+#[test]
+fn simple() {
+    assert!(true)
 }
