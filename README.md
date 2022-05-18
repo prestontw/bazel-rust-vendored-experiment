@@ -2,21 +2,30 @@
 I'm trying to set up a locally vendored rust project that supports building
 with both Cargo and bazel.
 
+This is mostly a cargo project with bazel thrown in later. The errors I encountered
+made me borrow the structure of https://github.com/bazelbuild/rules_rust/tree/main/examples/crate_universe/vendor_local_manifests.
+
 #### Does it work?
 
-Almost! Running
-```
-bazel run //:crates_vendor
+Yes! For running from cargo:
+```sh
+# in `vendor_local_manifests`
+cargo run
 ```
 
-I see
+For testing:
+```sh
+# in `vendor_local_manifests`
+cargo test
 ```
-Error: Failed to parse label from string: @__main__///:crates/regex-syntax-0.6.25:BUILD.bazel
-```
-(or a bunch of very similar errors for different crates).
 
-But if you just want to run the project through bazel, not caring about vendoring,
+For running from bazel:
+```sh
+bazel run //vendor_local_manifests:hello_world
 ```
-bazel run //:hello_world
+
+For testing:
 ```
-works! Test by navigating to `http://localhost:3000/` after running the above command.
+bazel test //...
+```
+to test everything.
